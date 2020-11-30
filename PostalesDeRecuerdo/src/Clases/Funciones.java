@@ -9,11 +9,14 @@ package Clases;
  *
  * @author JansMorphy
  */
-public class Proyecto {
-    private Imagen imgOriginal;
-    private Postal postal;
+public class Funciones {
 
-    public Proyecto() {
-    }
+    static {
+      
+   }
     
+    private native void sayHello();
+    
+    
+
 }

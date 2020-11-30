@@ -9,12 +9,12 @@ package Clases;
  *
  * @author JansMorphy
  */
-public class Imagen_Original {
+public class Imagen {
     private final String ruta; 
     private int X; 
     private int Y;
 
-    public Imagen_Original(String ruta) {
+    public Imagen(String ruta) {
         this.ruta = ruta;
     }
 
