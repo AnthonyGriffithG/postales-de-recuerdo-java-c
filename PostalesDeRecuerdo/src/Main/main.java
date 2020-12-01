@@ -5,6 +5,7 @@
  */
 package Main;
 
+import Interfaz.Inicio;
 import java.io.IOException;
 
 /**
@@ -18,7 +19,9 @@ public class main {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        Process process = new ProcessBuilder("C:\\Users\\ExtremeTech Sc\\CLionProjects\\PROYECTO\\cmake-build-debug\\PROYECTO.EXE","ruta","textoArrriba","TextoAbajo").start();
+        Inicio Frame = new Inicio();
+        Frame.setVisible(true);
+        Frame.setLocationRelativeTo(null);
     }
     
 }

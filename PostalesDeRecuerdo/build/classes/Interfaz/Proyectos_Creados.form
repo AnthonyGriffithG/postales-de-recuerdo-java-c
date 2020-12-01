@@ -157,8 +157,8 @@
         <Component class="javax.swing.JLabel" name="LBL_ImagenOriginal">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                <MatteColorBorder/>
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
               </Border>
             </Property>
           </Properties>
@@ -166,8 +166,8 @@
         <Component class="javax.swing.JLabel" name="LBL_ImagenNueva">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                <MatteColorBorder/>
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
               </Border>
             </Property>
           </Properties>
@@ -184,11 +184,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver completo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_VerCompletoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BTN_VerCompleto_2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver completo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_VerCompleto_2ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

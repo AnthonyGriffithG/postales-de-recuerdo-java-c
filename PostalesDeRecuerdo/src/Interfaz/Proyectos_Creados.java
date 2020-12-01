@@ -5,12 +5,27 @@
  */
 package Interfaz;
 
+import Clases.Funciones;
+import Clases.Proyecto;
+import java.awt.Desktop;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+
 /**
  *
  * @author JansMorphy
  */
 public class Proyectos_Creados extends javax.swing.JFrame {
-
+    Funciones FN = Funciones.getInstance();
+    public DefaultListModel listModel = new DefaultListModel();
     /**
      * Creates new form Proyectos_Creados2
      */
@@ -52,9 +67,9 @@ public class Proyectos_Creados extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Postal:");
 
-        LBL_ImagenOriginal.setBorder(new javax.swing.border.MatteBorder(null));
+        LBL_ImagenOriginal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        LBL_ImagenNueva.setBorder(new javax.swing.border.MatteBorder(null));
+        LBL_ImagenNueva.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         BTN_Volver.setText("Volver");
         BTN_Volver.addActionListener(new java.awt.event.ActionListener() {
@@ -64,8 +79,18 @@ public class Proyectos_Creados extends javax.swing.JFrame {
         });
 
         BTN_VerCompleto.setText("Ver completo");
+        BTN_VerCompleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_VerCompletoActionPerformed(evt);
+            }
+        });
 
         BTN_VerCompleto_2.setText("Ver completo");
+        BTN_VerCompleto_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_VerCompleto_2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,10 +165,39 @@ public class Proyectos_Creados extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+        
+    
+    
     private void BTN_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_VolverActionPerformed
-        // TODO add your handling code here:
+        Inicio Frame = new Inicio();
+        Frame.setVisible(true);
+        Frame.setLocationRelativeTo(null);
+        dispose();
     }//GEN-LAST:event_BTN_VolverActionPerformed
+
+    private void BTN_VerCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_VerCompletoActionPerformed
+        try {
+            String imagen = FN.buscarProyecto(List_ProyectosCreados.getSelectedValue()).getImgOriginal().getRuta();
+            File f = new File(imagen);
+            Desktop d = Desktop.getDesktop();
+            d.open(f);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Proyectos_Creados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BTN_VerCompletoActionPerformed
+
+    private void BTN_VerCompleto_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_VerCompleto_2ActionPerformed
+        try {
+            String postal = FN.buscarProyecto(List_ProyectosCreados.getSelectedValue()).getPostal().getRuta();
+            File f = new File(postal);
+            Desktop d = Desktop.getDesktop();
+            d.open(f);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Proyectos_Creados.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_BTN_VerCompleto_2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,6 +232,26 @@ public class Proyectos_Creados extends javax.swing.JFrame {
             public void run() {
                 new Proyectos_Creados().setVisible(true);
             }
+        });
+    }
+    public void cargarProyectosCreados(){
+        listModel.clear();
+        
+        for (Proyecto i : FN.ListaProyectos) {
+            listModel.addElement(i.getNombre());
+        }
+        List_ProyectosCreados.setModel(listModel);
+    }
+
+    public void listener() {
+        List_ProyectosCreados.getSelectionModel().addListSelectionListener(e -> {
+            Proyecto proyecto = FN.buscarProyecto(List_ProyectosCreados.getSelectedValue());
+            ImageIcon imagen = new ImageIcon(proyecto.getImgOriginal().getRuta());
+            ImageIcon postal = new ImageIcon(proyecto.getPostal().getRuta());
+            ImageIcon iconOri = new ImageIcon(imagen.getImage().getScaledInstance(LBL_ImagenOriginal.getWidth(), LBL_ImagenOriginal.getHeight(), Image.SCALE_DEFAULT));
+            ImageIcon iconPostal = new ImageIcon(postal.getImage().getScaledInstance(LBL_ImagenNueva.getWidth(), LBL_ImagenNueva.getHeight(), Image.SCALE_DEFAULT));
+            LBL_ImagenOriginal.setIcon(iconOri);
+            LBL_ImagenNueva.setIcon(iconPostal);
         });
     }
 

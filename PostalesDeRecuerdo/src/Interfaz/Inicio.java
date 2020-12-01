@@ -39,10 +39,25 @@ public class Inicio extends javax.swing.JFrame {
         label1.setText("Gestor de postales de recuerdo");
 
         BTN_NuevoProyecto.setText("Nuevo proyecto");
+        BTN_NuevoProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_NuevoProyectoActionPerformed(evt);
+            }
+        });
 
         BTN_ProyectosCreados.setText("Proyectos creados");
+        BTN_ProyectosCreados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_ProyectosCreadosActionPerformed(evt);
+            }
+        });
 
         BTN_AplicarPlugin.setText("Aplicar plugin");
+        BTN_AplicarPlugin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_AplicarPluginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,6 +109,29 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BTN_NuevoProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_NuevoProyectoActionPerformed
+        Nuevo_Proyecto Frame = new Nuevo_Proyecto();
+        Frame.setVisible(true);
+        Frame.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_BTN_NuevoProyectoActionPerformed
+
+    private void BTN_ProyectosCreadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ProyectosCreadosActionPerformed
+        Proyectos_Creados Frame = new Proyectos_Creados();
+        Frame.cargarProyectosCreados();
+        Frame.listener();
+        Frame.setVisible(true);
+        Frame.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_BTN_ProyectosCreadosActionPerformed
+
+    private void BTN_AplicarPluginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_AplicarPluginActionPerformed
+        Aplicar_Plugin Frame = new Aplicar_Plugin();
+        Frame.setVisible(true);
+        Frame.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_BTN_AplicarPluginActionPerformed
 
     /**
      * @param args the command line arguments

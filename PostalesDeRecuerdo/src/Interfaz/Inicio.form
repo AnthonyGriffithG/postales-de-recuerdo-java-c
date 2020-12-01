@@ -94,16 +94,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Nuevo proyecto"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_NuevoProyectoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BTN_ProyectosCreados">
           <Properties>
             <Property name="text" type="java.lang.String" value="Proyectos creados"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_ProyectosCreadosActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BTN_AplicarPlugin">
           <Properties>
             <Property name="text" type="java.lang.String" value="Aplicar plugin"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BTN_AplicarPluginActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

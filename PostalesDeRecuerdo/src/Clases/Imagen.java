@@ -11,6 +11,7 @@ package Clases;
  */
 public class Imagen {
     private final String ruta; 
+
     private int X; 
     private int Y;
 
@@ -34,5 +35,8 @@ public class Imagen {
         this.Y = Y;
     }
     
+    public String getRuta() {
+        return ruta;
+    }
 }
 

@@ -11,17 +11,25 @@ package Clases;
  */
 public class Postal {
     private final String ruta;
-    private final int X;
-    private final int Y;
-    private final int tipoLetra;
-    private final int tamLetra;
+    private final String tipoLetra;
+    private final String tamLetra;
 
-    public Postal(String ruta, int X, int Y, int tipoLetra, int tamLetra) {
+    public Postal(String ruta, String tipoLetra, String tamLetra) {
         this.ruta = ruta;
-        this.X = X;
-        this.Y = Y;
         this.tipoLetra = tipoLetra;
         this.tamLetra = tamLetra;
+    }
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public String getTipoLetra() {
+        return tipoLetra;
+    }
+
+    public String getTamLetra() {
+        return tamLetra;
     }
     
     

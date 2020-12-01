@@ -41,10 +41,10 @@ public class Aplicar_Plugin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Plugin Blanco Y Negro");
 
-        LBL_ImagenOriginal.setBorder(new javax.swing.border.MatteBorder(null));
+        LBL_ImagenOriginal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         LBL_ImagenOriginal.setPreferredSize(new java.awt.Dimension(300, 300));
 
-        LBL_ImagenNueva.setBorder(new javax.swing.border.MatteBorder(null));
+        LBL_ImagenNueva.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         LBL_ImagenNueva.setPreferredSize(new java.awt.Dimension(300, 300));
 
         jLabel4.setText("Seleccione una imagen");
@@ -52,6 +52,11 @@ public class Aplicar_Plugin extends javax.swing.JFrame {
         BTN_AplicarPlugin.setText("Aplicar plugin");
 
         BTN_Volver.setText("Volver");
+        BTN_Volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_VolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -118,6 +123,13 @@ public class Aplicar_Plugin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BTN_VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_VolverActionPerformed
+        Inicio Frame = new Inicio();
+        Frame.setVisible(true);
+        Frame.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_BTN_VolverActionPerformed
 
     /**
      * @param args the command line arguments
